@@ -9,6 +9,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <script>window.Laravel = { csrfToken: '{{ csrf_token() }}' }</script>
 
         <!-- Styles -->
         <style>
@@ -63,6 +65,8 @@
                 margin-bottom: 30px;
             }
         </style>
+        <link rel="stylesheet" href="{{ asset('/css/app.css') }}"></link>
+
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -77,10 +81,12 @@
                 </div>
             @endif
 
-            <div class="content">
+            <div class="content" id="app">
                 <div class="title m-b-md">
                     Laravel
                 </div>
+
+                <article-list></article-list>
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
@@ -91,5 +97,6 @@
                 </div>
             </div>
         </div>
+        <script src="{{ asset('/js/app.js') }}"></script>
     </body>
 </html>
